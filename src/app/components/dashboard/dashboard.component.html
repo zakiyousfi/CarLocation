@@ -1,0 +1,113 @@
+<div class="col-lg-12 grid-margin stretch-card" style="margin-top: 10px; background-color: rgb(255, 196, 196);">
+    <div class="card">
+      <div class="card-body">
+        <h4 style="text-align: center;font-size:50px; " class="card-title">Tableau Reservations</h4>
+        <div style="margin-top:20px;" class="table-responsive">
+          <table style="text-align: center;" class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  id
+                </th>
+                <th>
+                  image car
+                </th>
+                <th>
+                  Nom car
+                </th>
+                <th>
+                    Chauffeur
+                </th>
+                <th>
+                    GPS
+                </th>
+                <th>
+                    Siege Bebe
+                </th>
+                <th>
+                    prix
+                </th>
+                <th>
+                    date De Depart
+                </th>
+                <th>
+                    heure De Depart
+                </th>
+                <th>
+                    date De Retrait
+                </th>
+                <th>
+                    heure De Retour
+                </th>
+                <th>
+                    mode De Payement
+                </th>
+                <th>
+                    Facture
+                </th>
+                <th>
+                   Delet
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let r of ReservationsTab">
+              <tr>
+                <td>
+                  {{r.id}}
+                </td>
+                <td>
+                  <img style="width:80px;" [src]="r.img" alt="img">
+                </td>
+                <td>
+                  {{r.name}}
+                </td>
+                <td *ngIf="r.chauffeur==''">
+                    <div style="background-color:red;" class="badge badge-danger">no</div>
+                </td>
+                <td *ngIf="r.chauffeur=='yes'">
+                    <div style="background-color:green"  class="badge badge-success">yes</div>
+                </td>
+                <td *ngIf="r.GPS==''">
+                    <div style="background-color:red;" class="badge badge-danger">no</div>
+                </td>
+                <td *ngIf="r.GPS=='yes'">
+                    <div style="background-color:green"  class="badge badge-success">yes</div>
+                </td>
+                <td *ngIf="r.SiegeBebe==''">
+                    <div style="background-color:red;" class="badge badge-danger">no</div>
+                </td>
+                <td *ngIf="r.SiegeBebe=='yes'">
+                    <div style="background-color:green"  class="badge badge-success">yes</div>
+                </td>
+                <td style="color: blue;">
+                  {{r.prix}} DT
+                </td>
+                <td>
+                  {{r.dateDeDepart}}
+                </td>
+                <td>
+                  {{r.heureDeDepart}}
+                </td>
+                <td>
+                  {{r.dateDeRetrait}}
+                </td>
+                <td>
+                  {{r.heureDeRetour}}
+                </td>
+                <td>
+                  {{r.modeDePayement}}
+                </td>
+                <td>
+                    <button (click)="facture(r.id)"  type="button" class="btn btn-success">Facture</button>
+                </td>
+                <td>
+                    <button (click)="delet(r.id)" type="button" class="btn btn-danger">Delet</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>.</div>
